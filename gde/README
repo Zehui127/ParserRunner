@@ -1,0 +1,48 @@
+              USING THE GDE TO DEVELOP GRAMMARS
+
+You can use the GDE on its own if you want to develop your own grammars
+or experiment with existing ones; in that case, read on. On the other
+hand, if you are not interested in grammars themselves but just want to
+get the RASP tools to analyse text then please go to directory scripts/.
+
+To invoke the GDE using one of the pre-built binaries, enter one of the
+following commands at the Unix shell prompt:
+
+   bin/ix86_linux/gde
+   bin/x86_64_linux/gde
+   bin/ix86_darwin/gde
+   bin/x86_64_darwin/gde
+
+depending on your processor architecture and operating system. If you want
+to modify the behaviour of the GDE, you can edit the source code and build
+a new binary using the Makefile in this directory.
+
+The full set of commands which are available in the GDE is described
+in the user manual:
+
+   Carroll, J., E. Briscoe & C. Grover (1991) A development environment
+   for large natural language grammars. Computer Laboratory, Cambridge
+   University, UK, Technical Report 233.
+
+For convenience, this is included in the RASP distribution, as
+manuals/gde/ucam-cl-tr-233.pdf . However, please note that Chapter 6
+'Using the Morphological Analyser with the GDE' is no longer applicable.
+Visit <http://www.cl.cam.ac.uk/Research/NL/anlt.html> for references to
+work that has used the GDE.
+
+The GDE provides many advanced facilities for developing grammars, but
+you need to know only four commands to get started. They are 'read',
+'set', 'parse' and 'quit'. For example:
+
+   Gde> read grammar_file
+   Gde> set defining messages
+   Gde> parse 
+   Gde> quit 
+
+If you are running one of the pre-built binaries then there is a grammar
+already loaded (this is the grammar in prob/data/tsg15), plus statistical
+data associated with this grammar, and code for statistical parse
+disambiguation. If you want to load your own grammar into the GDE you
+should first give the GDE command 'clear'.  You may also want to set the
+flag 'tagged words' to off if the lexical entries associated with your
+grammar are for words rather than part-of-speech tags.

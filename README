@@ -1,0 +1,104 @@
+                    RASP - Robust Parsing System for English
+
+                            OPEN-SOURCE VERSION 3.3
+                                 October 2019
+
+LICENCE
+
+The open-source version of RASP is released under the LGPL open-source licence.
+See COPYING and COPYING.LESSER for details.
+
+
+CONTENTS
+
+There are a number of directories at the top level. They are:
+
+  "gde" -- source code and help files for the grammar development
+  environment and parser. The directory also contains a "README" file
+  giving instructions on how use the environment on its own to develop
+  grammars.
+
+  "manuals" -- documentation for the PoS tagset used, gde and grammar,
+  tsg-doc.pdf is a general `howto' and `best practice' document for
+  RASP which we recommend every user reads
+
+  "morph" -- contains source code for the Sussex
+  lemmatiser / morph analysis and generation system (see "README" file).
+
+
+  "prob" -- contains the grammar used for parsing and associated
+  statistical model, training material, the grammar development corpus,
+  and evaluation data and source code for carrying out evaluations.
+
+  "scripts" -- unix shell scripts for running the whole analysis system,
+  or just the parser.
+
+  "sentence" -- source code for sentence boundary detection.
+
+  "tag" -- source code for the PoS tagger, and data files
+  (lexicon etc) to allow it to be used in conjunction with the tag
+  sequence grammar.
+
+  "tokenise" -- source code for tokenisation (assuming
+  previous sentence boundary detection) and compatible with the tagger,
+  morphological analysis and parser.
+
+
+
+To run the whole system on English text, see the section below on
+running the system, and also the file "scripts/README".  To use any of
+the modules on its own, see the "README" file in the relevant
+directory.
+
+
+BUILDING THE SYSTEM
+
+To build the system, execute "make" with no parameters in the top-level
+directory.  This will download and build bison, flex and libdb,
+download Clozure CL and build the 5 main RASP modules (sentence, token, label,
+morpha and gde).
+
+
+RUNNING THE SYSTEM
+
+There are two shell scripts, rasp.sh and rasp_parse.sh, in the scripts
+directory which run the complete RASP NL analysis system and just the
+parser respectively.
+
+Examples of usage of rasp.sh (assuming "scripts" is the current
+directory):
+
+  $ ./rasp.sh -m < file.txt > analysed.txt
+  $ echo "This is a test." | ./rasp.sh -p'-os -u'
+  $ ./rasp.sh -mh < README > README.parses
+
+Examples of usage of rasp_parse.sh: 
+
+  $ ./rasp_parse.sh -l/tmp/log1 -s -t5 < tagged.txt
+  $ ./rasp_parse.sh -n1000 -ogw <<EOF
+  ^_^ Yesterday_RT Swapo_NP1 register+ed_VVD its_APP$ opposition_NN1
+  EOF
+
+README files are also provided in each component's directory.
+
+
+SUPPORT
+
+The RASP system is derived in part from portions of the Alvey NL Tools;
+see <http://www.cl.cam.ac.uk/Research/NL/anlt.html>. Development of the
+RASP system was funded by the UK EPSRC within the project "Robust
+Accurate Statistical Parsing (RASP)" (grants GR/N36462 and GR/N36493).
+
+The system is distributed for non-commercial use, and without any
+guarantee of support. We do however welcome reports of bugs or
+shortcomings; also fixes or work-rounds sent as email. But before
+reporting a bug, please read the documentation for the software and
+grammar since the behaviour may already be known about, or be an
+intentional feature. Contact information for the  RASP developers
+can be found on the iLexIR website <http://ilexir.co.uk/>.
+
+More extensive support and advice is available on a paid consultancy
+basis.
+
+The open-source distribution is a-cut down version of the CVS archive and
+may contain references to files that are not included.

@@ -1,0 +1,16 @@
+         DOCUMENTATION FOR GDE, GRAMMAR, EVALUATION SCHEME, etc
+
+This directory contains the user documentation for the Grammar
+Development Environment and a description of the grammar:
+
+   claws2tags.html -- a brief description of the part-of-speech tags used
+   by RASP
+
+   eval/eval-report.pdf -- a manual for running the grammatical relation
+   evaluation scripts in prob/greval 
+
+   tsg-doc.pdf -- a report detailing the output options, tuning etc for
+   the grammar / parser
+
+   ucam-cl-tr-233.pdf -- the GDE manual, with additional features outlined
+   in a new Appendix E
